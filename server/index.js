@@ -45,4 +45,9 @@ express()
   .get('/post-workout/movement', youtube)
   .get('/post-workout/bodyArea', youtube)
 
+  // Define route handler for the root URL (`/`)
+  .get('/', (req, res) => {
+    res.send('Welcome to Motion Mind Fitness Journey!');
+  })
+
   .listen(PORT, () => console.info(`Listening on port ${PORT}`));
