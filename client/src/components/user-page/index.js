@@ -127,10 +127,10 @@ const UserPage = () => {
                 <h1>Hello {loggedInUser.fname}</h1>
                 <Text>
                     Welcome to your fitness space! Here, you can easily log and track your personal records (PRs) for various exercises, helping you monitor progress and stay motivated.
-                    <br/><br/>To enhance your performance and overall mobility, our platform features a comprehensive collection of YouTube videos showcasing effective mobility exercises.
-                   <br/>Depending on your workout, you'll find specific pre-workout and post-workout mobility routines targeting either particular movements or broader body areas.
-                    <br/><br/>Additionally, we recommend incorporating daily mobility practices with morning, lunch break, and evening routines to further improve your flexibility and overall well-being.
-                   <br/> Start integrating these routines, follow along with the videos, and watch yourself hit new PRs while feeling great every day!
+                    <br /><br />To enhance your performance and overall mobility, our platform features a comprehensive collection of YouTube videos showcasing effective mobility exercises.
+                    <br />Depending on your workout, you'll find specific pre-workout and post-workout mobility routines targeting either particular movements or broader body areas.
+                    <br /><br />Additionally, we recommend incorporating daily mobility practices with morning, lunch break, and evening routines to further improve your flexibility and overall well-being.
+                    <br /> Start integrating these routines, follow along with the videos, and watch yourself hit new PRs while feeling great every day!
                 </Text>
                 <CurrentPRs latestPRs={latestPRs} />
                 <PostPRsContainer exercises={exercises} formData={formData} handleChangeForm={handleChangeForm} handleUpdatePRs={handleUpdatePRs} message={message} />

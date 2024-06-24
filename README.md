@@ -119,4 +119,4 @@ My main goal was to have a clean, organize and DRY code as possible. To use as m
 I did pass a lot of time on the responsivness of the website. I wanted to learn from the experience from the portfolio and be able to have fun with css.
 For the API  used, i wish to could have used it more but for the purpose of the website i didn't needed to display more information than the video title.
 
-There is a few more things i would like to work on. Like adding a section in the user page to display charts and see the improvement made in time on each exercises. And add also a goals list that will be storein the db. And i am sure i will found more things to add that the fun of coding there is always room for improvment.
+There is a few more things i would like to work on. Like adding a section in the user page to display charts and see the improvement made in time on each exercises. And add also a goals list that will be store in the db. And i am sure i will found more things to add or try out with this website.
