@@ -2,67 +2,67 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 //Component used for the youtube video that will be used in different pages
-const YoutubeVideo = ({videoId, movement, id}) => {
-    const [videoInfo, setVideoInfo] = useState(null); // store the info of the video
-    const [youtubeApiKey, setYoutubeApiKey] = useState(''); // store the API key
-  
-    //Fetch the youtube API key everytime the component is mounted
-    useEffect(() => {
-      const fetchYoutubeApiKey = async () => {
-        try {
-          const response = await fetch('/pre-workout/movement');
-          if (!response.ok) {
-            throw new Error('Failed to fetch key');
-          }
-          const apiKey = await response.json();
-          setYoutubeApiKey(apiKey);
-        } catch (error) {
-          console.error('Error fetching YouTube API key:', error);
-        }
-      };
-  
-      fetchYoutubeApiKey();
-    }, []);
-  
-    //Will fetch the video info everytime the youtube API and videoID change
-    useEffect(() => {
-      const fetchVideoInfo = async () => {
-        try {
-          const response = await fetch(
-            `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&part=snippet&key=${youtubeApiKey}`
-          );
-          if (!response.ok) {
-            throw new Error('Failed to fetch video');
-          }
-          const data = await response.json();
-          const videoData = data.items[0].snippet;
-          setVideoInfo(videoData); //store video info inside the state
-        } catch (error) {
-          console.error('Error fetching video:', error);
-        }
-      };
-  
-      if (youtubeApiKey && videoId) {
-        fetchVideoInfo();
-      }
-    }, [youtubeApiKey, videoId]);
+const YoutubeVideo = ({ videoId, movement, id }) => {
+  const [videoInfo, setVideoInfo] = useState(null); // store the info of the video
+  const [youtubeApiKey, setYoutubeApiKey] = useState(''); // store the API key
 
-    return(
-        <>
-        {videoInfo && (
-          <VideoContainer>
-            <h1>{movement}</h1>
-            <iframe
-              title="YouTube Video"
-              src={`https://www.youtube.com/embed/${videoId}?rel=0`}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-            <h2>{videoInfo.title}</h2> {/* Display the video title thanks to the youtube api */}
-          </VideoContainer>
-        )}
-      </>
-    );
+  //Fetch the youtube API key everytime the component is mounted
+  useEffect(() => {
+    const fetchYoutubeApiKey = async () => {
+      try {
+        const response = await fetch('https://motion-mind-fitness-journey-7e8f61e2895c.herokuapp.com/pre-workout/movement');
+        if (!response.ok) {
+          throw new Error('Failed to fetch key');
+        }
+        const apiKey = await response.json();
+        setYoutubeApiKey(apiKey);
+      } catch (error) {
+        console.error('Error fetching YouTube API key:', error);
+      }
+    };
+
+    fetchYoutubeApiKey();
+  }, []);
+
+  //Will fetch the video info everytime the youtube API and videoID change
+  useEffect(() => {
+    const fetchVideoInfo = async () => {
+      try {
+        const response = await fetch(
+          `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&part=snippet&key=${youtubeApiKey}`
+        );
+        if (!response.ok) {
+          throw new Error('Failed to fetch video');
+        }
+        const data = await response.json();
+        const videoData = data.items[0].snippet;
+        setVideoInfo(videoData); //store video info inside the state
+      } catch (error) {
+        console.error('Error fetching video:', error);
+      }
+    };
+
+    if (youtubeApiKey && videoId) {
+      fetchVideoInfo();
+    }
+  }, [youtubeApiKey, videoId]);
+
+  return (
+    <>
+      {videoInfo && (
+        <VideoContainer>
+          <h1>{movement}</h1>
+          <iframe
+            title="YouTube Video"
+            src={`https://www.youtube.com/embed/${videoId}?rel=0`}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+          <h2>{videoInfo.title}</h2> {/* Display the video title thanks to the youtube api */}
+        </VideoContainer>
+      )}
+    </>
+  );
 };
 
 export default YoutubeVideo;

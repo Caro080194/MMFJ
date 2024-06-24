@@ -28,7 +28,7 @@ const Login = () => {
         event.preventDefault();
         setLoginMessage("Retrieving your info");
         try {
-            const response = await fetch("/login", {
+            const response = await fetch("https://motion-mind-fitness-journey-7e8f61e2895c.herokuapp.com/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -34,7 +34,7 @@ const SignUp = () => {
         formData.country === "" ||
         formData.password === "" ||
         formData.confirmPassword === ""
-    ;
+        ;
 
     // Function to handle sign up process
     const handleSignUp = async (event) => {
@@ -50,14 +50,14 @@ const SignUp = () => {
                 password,
                 confirmPassword
             } = formData;
-            
-            const response = await fetch("/signUp", {
+
+            const response = await fetch("https://motion-mind-fitness-journey-7e8f61e2895c.herokuapp.com/signUp", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    fname, 
+                    fname,
                     lname,
                     email,
                     city,
@@ -67,7 +67,7 @@ const SignUp = () => {
                 }),
             });
 
-            if(response.ok) {
+            if (response.ok) {
                 setSignUpMessage("Your account has been created, you can now login!");
                 setFormData({
                     fname: "",
@@ -90,12 +90,12 @@ const SignUp = () => {
     return (
         <>
             <Navbar />
-            <SignUpContainer 
-                formData={formData} 
-                signUpMessage={signUpMessage} 
-                handleChangeForm={handleChangeForm} 
-                handleSignUp={handleSignUp} 
-                requiredFields={requiredFields} 
+            <SignUpContainer
+                formData={formData}
+                signUpMessage={signUpMessage}
+                handleChangeForm={handleChangeForm}
+                handleSignUp={handleSignUp}
+                requiredFields={requiredFields}
             />
             <Footer />
         </>
