@@ -16,9 +16,7 @@
     "mongodb": "^6.6.0",
     "morgan": "^1.10.0",
     "node-fetch": "^3.3.2",
+    "nodemon": "^2.0.2",
     "uuid": "^9.0.1"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.2"
   }
 }
