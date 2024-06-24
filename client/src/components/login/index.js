@@ -6,7 +6,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-    const { logIn, loggedInUser, loggedInUserPRs } = useContext(LoggedInUserContext); //Get the function and state from the context
+    const { logIn } = useContext(LoggedInUserContext); //Get the function and state from the context
     const navigate = useNavigate(); //hooks to be able to navigate to another page
     const [loginMessage, setLoginMessage] = useState(""); // message to display during login process
     const [loginInfo, setLoginInfo] = useState({
@@ -56,13 +56,13 @@ const Login = () => {
     return (
         <>
             <Navbar />
-            <LoginContainer 
-                loginInfo={loginInfo} 
-                handleChange={handleChange} 
-                handleLogin={handleLogin} 
-                requiredFields={requiredFields} 
-                navigate={navigate} 
-                loginMessage={loginMessage} 
+            <LoginContainer
+                loginInfo={loginInfo}
+                handleChange={handleChange}
+                handleLogin={handleLogin}
+                requiredFields={requiredFields}
+                navigate={navigate}
+                loginMessage={loginMessage}
             />
             <Footer />
         </>

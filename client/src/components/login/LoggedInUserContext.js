@@ -1,9 +1,9 @@
-import { createContext, useState, useEffect} from "react";
+import { createContext, useState } from "react";
 
 export const LoggedInUserContext = createContext();
 
-const LoggedInUserProvider = ({children}) => {
-    
+const LoggedInUserProvider = ({ children }) => {
+
     const [loggedInUser, setLoggedInUser] = useState({
         _id: "",
         fname: "",
@@ -38,7 +38,7 @@ const LoggedInUserProvider = ({children}) => {
 
     return (
         <LoggedInUserContext.Provider
-         value={{loggedInUser, isLogin, logIn, logOut, loggedInUserPRs, setLoggedInUserPRs}}
+            value={{ loggedInUser, isLogin, logIn, logOut, loggedInUserPRs, setLoggedInUserPRs }}
         >
             {children}
         </LoggedInUserContext.Provider>
