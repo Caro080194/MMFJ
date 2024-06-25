@@ -7,7 +7,7 @@ const youtube = async (req, res) => {
             throw new Error('YouTube API key is not available.');
         }
 
-        res.json(apiKey);
+        res.send(apiKey);
     } catch (error) {
         console.error('Error fetching YouTube API key:', error);
         res.status(500).send('Failed to fetch YouTube API key');
