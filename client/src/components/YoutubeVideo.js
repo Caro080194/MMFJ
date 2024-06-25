@@ -6,7 +6,7 @@ const YoutubeVideo = ({ videoId, movement, id }) => {
   const [videoInfo, setVideoInfo] = useState(null); // store the info of the video
   const [youtubeApiKey, setYoutubeApiKey] = useState(''); // store the API key
 
-  //Fetch the youtube API key everytime the component is mounted
+  // Fetch the youtube API key everytime the component is mounted
   useEffect(() => {
     const fetchYoutubeApiKey = async () => {
       try {
@@ -14,7 +14,8 @@ const YoutubeVideo = ({ videoId, movement, id }) => {
         if (!response.ok) {
           throw new Error('Failed to fetch key');
         }
-        const apiKey = await response.json();
+        const apiKeyResponse = await response.text(); // Get the API key response as text
+        const apiKey = apiKeyResponse.split('=')[1]; // Extract only the API key value
         setYoutubeApiKey(apiKey);
       } catch (error) {
         console.error('Error fetching YouTube API key:', error);
