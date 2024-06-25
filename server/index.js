@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 4000;
 
 // CORS options to allow requests from frontend domain
 const corsOptions = {
-  origin: 'https://motion-mind-fitness-journey-mvmaf95ur-caroline-le-nys-projects.vercel.app',
+  origin: 'https://motion-mind-fitness-journey-d8wqtxhzq-caroline-le-nys-projects.vercel.app',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
