@@ -12,7 +12,7 @@ const UserPage = () => {
     // Fetch the last PR update of the user
     const fetchLastPR = async () => {
         try {
-            const response = await fetch(`/trackLastPR?userId=${loggedInUser._id}`);
+            const response = await fetch(`https://motion-mind-fitness-journey-7e8f61e2895c.herokuapp.com/trackLastPR?userId=${loggedInUser._id}`);
             const data = await response.json();
 
             if (response.ok) {
