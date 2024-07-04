@@ -42,7 +42,7 @@ const PostWorkoutMovement = () => {
                 videoId={video.videoId}
                 movement={video.movement}
                 id={video.id}
-                apiKeyEndpoint={"https://motion-mind-fitness-journey-7e8f61e2895c.herokuapp.com/pre-workout/movement"}
+                apiKeyEndpoint={"https://motion-mind-fitness-journey-7e8f61e2895c.herokuapp.com/post-workout/movement"}
               />
             </VideoWrapper>
           ))}
