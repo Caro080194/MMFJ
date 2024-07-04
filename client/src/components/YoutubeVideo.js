@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 //Component used for the youtube video that will be used in different pages
-const YoutubeVideo = ({ videoId, movement, id }) => {
+const YoutubeVideo = ({ videoId, movement, apiKeyEndpoint, id }) => {
   const [videoInfo, setVideoInfo] = useState(null); // store the info of the video
   const [youtubeApiKey, setYoutubeApiKey] = useState(''); // store the API key
 
@@ -10,7 +10,7 @@ const YoutubeVideo = ({ videoId, movement, id }) => {
   useEffect(() => {
     const fetchYoutubeApiKey = async () => {
       try {
-        const response = await fetch('https://motion-mind-fitness-journey-7e8f61e2895c.herokuapp.com/pre-workout/movement');
+        const response = await fetch(apiKeyEndpoint);
         if (!response.ok) {
           throw new Error('Failed to fetch key');
         }
@@ -23,7 +23,7 @@ const YoutubeVideo = ({ videoId, movement, id }) => {
     };
 
     fetchYoutubeApiKey();
-  }, []);
+  }, [apiKeyEndpoint]);
 
   //Will fetch the video info everytime the youtube API and videoID change
   useEffect(() => {

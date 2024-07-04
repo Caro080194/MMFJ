@@ -18,38 +18,43 @@ const PostWorkoutBodyArea = () => {
     { videoId: "F5p96FKT1tg", bodyArea: "Upper Back& Shoulders", id: "upperBackShoulders" },
   ];
 
-    // Filter videos based on selected filters
+  // Filter videos based on selected filters
   const filteredVideos = selectedFilters.length === 0 ? videoData : videoData.filter(video => selectedFilters.includes(video.id));
-    
+
   return (
-        <>
-            <Navbar />
-            <PageContainer>
-              <FilterMenuContainer>
-                <h2>Filter by body area</h2>
-                {videoData.map(area => (
-                  <FilterOption key={area.id}>
-                    <Checkbox
-                    type="checkbox"
-                    id={area.id}
-                    checked={selectedFilters.includes(area.id)}
-                    onChange={() => handleFilterChange(area.id)}
-                  />
-                  <label typeof="text">{area.bodyArea}</label>
-                  </FilterOption>
-                ))}
-              </FilterMenuContainer>
-              <VideosContainer>
-                {filteredVideos.map(video => (
-                  <VideoWrapper key={video.id}>
-                    <YoutubeVideo videoId={video.videoId} movement={video.bodyArea} id={video.id}/>
-                  </VideoWrapper>
-                ))}
-              </VideosContainer>
-            </PageContainer>
-            <Footer />
-        </>
-    );
+    <>
+      <Navbar />
+      <PageContainer>
+        <FilterMenuContainer>
+          <h2>Filter by body area</h2>
+          {videoData.map(area => (
+            <FilterOption key={area.id}>
+              <Checkbox
+                type="checkbox"
+                id={area.id}
+                checked={selectedFilters.includes(area.id)}
+                onChange={() => handleFilterChange(area.id)}
+              />
+              <label typeof="text">{area.bodyArea}</label>
+            </FilterOption>
+          ))}
+        </FilterMenuContainer>
+        <VideosContainer>
+          {filteredVideos.map(video => (
+            <VideoWrapper key={video.id}>
+              <YoutubeVideo
+                videoId={video.videoId}
+                movement={video.movement}
+                id={video.id}
+                apiKeyEndpoint={"https://motion-mind-fitness-journey-7e8f61e2895c.herokuapp.com/pre-workout/movement"}
+              />
+            </VideoWrapper>
+          ))}
+        </VideosContainer>
+      </PageContainer>
+      <Footer />
+    </>
+  );
 };
 
 export default PostWorkoutBodyArea;
