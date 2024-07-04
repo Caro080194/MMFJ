@@ -97,7 +97,7 @@ const UserPage = () => {
         const userId = loggedInUser._id;
         setMessage("Updating PR...");
         try {
-            const response = await fetch("/postPRs", {
+            const response = await fetch("https://motion-mind-fitness-journey-7e8f61e2895c.herokuapp.com/postPRs", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
