@@ -19,7 +19,12 @@ const GeneralMobilityNight = () => {
         <VideosContainer>
           {videoData.map(video => (
             <VideoWrapper key={video.id}>
-              <YoutubeVideo videoId={video.videoId} />
+              <YoutubeVideo
+                videoId={video.videoId}
+                movement={video.movement}
+                id={video.id}
+                apiKeyEndpoint={"https://motion-mind-fitness-journey-7e8f61e2895c.herokuapp.com/general-mobility/night"}
+              />
             </VideoWrapper>
           ))}
         </VideosContainer>

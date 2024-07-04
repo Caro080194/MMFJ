@@ -52,6 +52,8 @@ express()
   .get('/pre-workout/bodyArea', youtube)
   .get('/post-workout/movement', youtube)
   .get('/post-workout/bodyArea', youtube)
+  .get('/general-mobility/morning', youtube)
+  .get('/general-mobility/night', youtube)
 
   // Define route handler for the root URL (`/`)
   .get('/', (req, res) => {
